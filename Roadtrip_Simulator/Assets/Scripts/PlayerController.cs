@@ -1,46 +1,67 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool gameOver = false;
+    public bool hasPowerup = false;
 
-    public float turnSpeed;
-    public float turnAngle;
-    public float sideBounds;
+    private int powerupDuration = 3;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float turnSpeed = 10;
+    private float turnAngle;
+    private float sideBounds = 14;
 
-    // Update is called once per frame
+    [SerializeField]
+    private GameObject newGame;
+    [SerializeField]
+    private GameObject backToMenu;
+    [SerializeField]
+    private GameObject powerupIndicator;
+
     void Update()
     {
+        // ABSTRACTION
+
         MovePlayer();
         ConstrainPlayerPosition();
 
-        // make the car model turn around Y axis while its turning
-        // propably make an empty that will move side to side and
-        // make a child that is the model and it would only turn on a sort
-        // of a turntable
-        // camera will also be connected to the empty
-        // collisisons will be handeled by the model and car
+        if (gameOver == true)
+        {
+            newGame.gameObject.SetActive(true);
+            backToMenu.gameObject.SetActive(true);
+        }
+
     }
 
-    // thats for moving the player
-    void MovePlayer()
+    public void PlayerGotPowerup()
+    {
+        Debug.Log("Player got the powerup");
+
+        turnSpeed = 14;
+        StartCoroutine(PowerupDuration());
+        powerupIndicator.gameObject.SetActive(true);
+    }
+    IEnumerator PowerupDuration()
+    {
+        yield return new WaitForSeconds(powerupDuration);
+        powerupIndicator.gameObject.SetActive(false);
+        turnSpeed = 10;
+        hasPowerup = false;
+    }
+
+
+        // thats for moving the player
+        void MovePlayer()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-
-        transform.Translate(Vector3.right * turnSpeed * horizontalInput * Time.deltaTime);
-
-        // this part succesfully turns the vehicle around Y axis
-        // now i just have to detatch it so that the car doesnt go backwards
-        // or find a way to use global coordinate system to use
-
-        
+        if (gameOver == false)
+        {
+            transform.Translate(Vector3.right * turnSpeed * horizontalInput * Time.deltaTime);
+        }
+    
     }
 
     // this is to not let them crash into bariers

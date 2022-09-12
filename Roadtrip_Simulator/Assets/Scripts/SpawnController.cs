@@ -25,6 +25,7 @@ public class SpawnController : MonoBehaviour
     }
 
     // ABSTRACTION
+
     Vector3 RandomSpawnTruckPosition()
     {
         int randomTruckX = Random.Range(-2, 3) * 5;

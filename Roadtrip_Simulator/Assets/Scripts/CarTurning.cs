@@ -5,35 +5,27 @@ using UnityEngine;
 public class CarTurning : MonoBehaviour
 {
     private float turnAngle = 12;
+    [SerializeField]
+    private GameObject playerController;
+    private Rigidbody carRigidbody;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-  
+        carRigidbody = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
     void Update()
-    {
-        float horizontalInput = Input.GetAxis("Horizontal");
-
-        gameObject.transform.eulerAngles = new Vector3(
-            gameObject.transform.eulerAngles.x,
-            turnAngle * horizontalInput,
-            gameObject.transform.eulerAngles.z);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Obstacle"))
+    { 
+        if (playerController.GetComponent<PlayerController>().gameOver == false)
         {
-            Debug.Log("player collided with an obstacle");
-            //dorzucic kawalek kodu ktory zatrzymuje gre
-        }
-        if (collision.gameObject.CompareTag("Powerup"))
+            float horizontalInput = Input.GetAxis("Horizontal");
+
+            gameObject.transform.eulerAngles = new Vector3(
+                gameObject.transform.eulerAngles.x,
+                turnAngle * horizontalInput,
+                gameObject.transform.eulerAngles.z);
+        } else
         {
-            Debug.Log("player got a powerup");
-            Destroy(collision.gameObject);
+            carRigidbody.constraints = RigidbodyConstraints.None;
         }
     }
 }
