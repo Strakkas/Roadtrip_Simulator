@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
+    private GameObject theStaticThingy;
+
+    private void Start()
+    {
+        theStaticThingy = GameObject.Find("The Static Thingy");
+    }
+
     public void LoadGameScene()
     {
         SceneManager.LoadScene(2);

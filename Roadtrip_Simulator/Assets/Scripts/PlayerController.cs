@@ -10,8 +10,7 @@ public class PlayerController : MonoBehaviour
 
     private int powerupDuration = 3;
 
-    public float turnSpeed = 10;
-    private float turnAngle;
+    private float turnSpeed = 10;
     private float sideBounds = 14;
 
     [SerializeField]

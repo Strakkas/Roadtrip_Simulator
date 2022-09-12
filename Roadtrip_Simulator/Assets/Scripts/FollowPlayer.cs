@@ -10,6 +10,13 @@ public class FollowPlayer : MonoBehaviour
     [SerializeField]
     private GameObject playerController;
 
+    private GameObject theStaticThingy;
+
+    private void Start()
+    {
+        theStaticThingy = GameObject.Find("The Static Thingy");
+    }
+
     void LateUpdate()
     {
         if (playerController.GetComponent<PlayerController>().gameOver == false)

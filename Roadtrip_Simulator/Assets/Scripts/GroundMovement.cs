@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GroundMovement : MonoBehaviour
 {
-    public float speed;
+    private float speed = 30;
 
     private Vector3 startPos;
     
