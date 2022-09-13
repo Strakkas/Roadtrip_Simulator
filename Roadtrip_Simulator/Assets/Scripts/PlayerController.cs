@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     private float sideBounds = 14;
 
     [SerializeField]
+    private GameObject crashParticle;
+
+    [SerializeField]
     private GameObject newGame;
     [SerializeField]
     private GameObject backToMenu;
@@ -29,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
         if (gameOver == true)
         {
+            crashParticle.SetActive(true);
             newGame.gameObject.SetActive(true);
             backToMenu.gameObject.SetActive(true);
         }
