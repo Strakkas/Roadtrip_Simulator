@@ -12,9 +12,24 @@ public class FollowPlayer : MonoBehaviour
 
     private GameObject theStaticThingy;
 
+    [SerializeField]
+    private AudioSource musicSource;
+
+    [SerializeField]
+    private AudioSource carSource;
+
+    [SerializeField]
+    private AudioClip clickSound;
+    private AudioSource audioSource;
+
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         theStaticThingy = GameObject.Find("The Static Thingy");
+
+        audioSource.volume = theStaticThingy.GetComponent<TheStaticThingy>().soundEffectVolume;
+        carSource.volume = theStaticThingy.GetComponent<TheStaticThingy>().soundEffectVolume;
+        musicSource.volume = theStaticThingy.GetComponent<TheStaticThingy>().musicVolume;
     }
 
     void LateUpdate()
@@ -28,11 +43,23 @@ public class FollowPlayer : MonoBehaviour
 
     public void BackToMenu()
     {
+        audioSource.PlayOneShot(clickSound);
+        StartCoroutine(LoadingMenuScene());
+    }
+    IEnumerator LoadingMenuScene()
+    {
+        yield return new WaitForSeconds(0.1f);
         SceneManager.LoadScene(0);
     }
 
     public void RestartGame()
     {
+        audioSource.PlayOneShot(clickSound);
+        StartCoroutine(RestartingGame());
+    }
+    IEnumerator RestartingGame()
+    {
+        yield return new WaitForSeconds(0.1f);
         SceneManager.LoadScene(2);
     }
 }

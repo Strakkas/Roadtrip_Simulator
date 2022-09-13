@@ -8,12 +8,18 @@ public class ChildCrate : ParentObstacles // INHERITANCE
 
     private Rigidbody obstacleRb;
 
+    private GameObject mainCamera;
+    [SerializeField]
+    private AudioClip crashSound;
+
     private void Awake()
     {
         obstacleRb = gameObject.GetComponent<Rigidbody>();
         InitialImpulse(30, obstacleRb);
 
         playerController = GameObject.Find("Player");
+
+        mainCamera = GameObject.Find("Main Camera");
     }
 
     void Update()
@@ -26,6 +32,7 @@ public class ChildCrate : ParentObstacles // INHERITANCE
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            mainCamera.GetComponent<AudioSource>().PlayOneShot(crashSound);
             playerController.GetComponent<PlayerController>().gameOver = true;
         }
     }
