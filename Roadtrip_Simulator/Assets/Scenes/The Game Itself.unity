@@ -2479,11 +2479,11 @@ RectTransform:
   m_Father: {fileID: 1070169176}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 285.1, y: -162}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -200, y: 60}
   m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &630358379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4235,7 +4235,7 @@ MonoBehaviour:
   playerController: {fileID: 241722847}
   musicSource: {fileID: 314769149}
   carSource: {fileID: 662612909}
-  clickSound: {fileID: 8300000, guid: 99348d26b121bdf40bca2ff30b000207, type: 3}
+  clickSound: {fileID: 8300000, guid: 9babc440e8c3d0a46bf35c7874dd910c, type: 3}
 --- !u!82 &963194230
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5513,11 +5513,11 @@ RectTransform:
   m_Father: {fileID: 1070169176}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 286.2, y: -104}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -200, y: 120}
   m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1264301663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8706,11 +8706,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: c24dc1a356ac9499b9924f6810888b8f, type: 3}
+    m_FontSize: 18
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -9326,11 +9326,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: c24dc1a356ac9499b9924f6810888b8f, type: 3}
+    m_FontSize: 18
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
